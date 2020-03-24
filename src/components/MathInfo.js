@@ -16,7 +16,7 @@ const MathInfo = props => {
 
   const getGrowthRate = () => {
     const knownDaysOfGrowth = lastCaseDate.diff(firstCaseDate, 'days');
-    return currentTotalOfCases / knownDaysOfGrowth;
+    return Math.ceil(currentTotalOfCases / knownDaysOfGrowth);
   };
   return (
     <>
