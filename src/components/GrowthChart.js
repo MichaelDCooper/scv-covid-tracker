@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chartjs from 'chart.js';
 
+import MathInfo from './MathInfo';
 import data from '../data/covidSpread';
 
 const getValues = valueData => {
@@ -21,7 +22,8 @@ const chartConfig = {
         data: getValues(data),
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 3
+        borderWidth: 3,
+        lineTension: 0
       }
     ]
   },
@@ -52,6 +54,7 @@ const Chart = () => {
   return (
     <div>
       <canvas ref={chartContainer} />
+      <MathInfo cases={getValues(data)} dates={getLabels(data)} />
     </div>
   );
 };
